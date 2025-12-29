@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Report: Hand Gesture Recognition System</title>
+    <title>Hand Gesture Recognition Report</title>
     <style>
         :root {
-            --primary: #0f172a;      /* Dark Navy */
-            --accent: #2563eb;       /* Royal Blue */
-            --text-main: #1e293b;    /* Dark Slate */
-            --bg-body: #e2e8f0;      /* Light Grey Background */
-            --bg-paper: #ffffff;     /* White Paper */
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #1e293b;
+            --bg-body: #e2e8f0;
+            --bg-paper: #ffffff;
         }
 
         body {
@@ -22,89 +22,66 @@
             padding: 2rem 0;
         }
 
-        /* --- TITLE PAGE STYLING --- */
+        /* TITLE PAGE - Uses the local image 'front page.jpg' */
         .title-page {
-            /* WORKING ONLINE IMAGE: 
-               High-quality 'Computer Vision / Matrix' style background from Unsplash.
-               No download required.
-            */
-            background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop');
-            
+            background-image: url('front page.jpg'); /* RELATIVE PATH FIXED */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            
-            /* Flexbox to center the overlay box */
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 1123px; /* Standard A4 Height */
+            min-height: 100vh;
         }
 
-        /* THE OVERLAY BOX: This makes text visible darkly and perfectly */
         .title-overlay {
-            background-color: rgba(255, 255, 255, 0.95); /* 95% Opaque White for sharp contrast */
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 4rem;
-            width: 75%;
+            width: 80%;
+            max-width: 800px;
             border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Deep shadow to separate from background */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             border: 1px solid #fff;
             text-align: center;
-            backdrop-filter: blur(5px); /* Blurs the image slightly behind the box */
+            backdrop-filter: blur(5px);
         }
 
-        /* Dark, Sharp Text for Title Page */
         .title-overlay h1 {
             font-family: 'Segoe UI', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: #000000; /* Pure Black */
+            color: #000;
             line-height: 1.2;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: -0.5px;
         }
 
         .title-overlay .subtitle {
             font-family: 'Segoe UI', sans-serif;
-            font-size: 1.4rem;
-            color: #333333;
+            font-size: 1.2rem;
+            color: #333;
             font-weight: 600;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-style: italic;
         }
 
         .team-section {
             border-top: 2px solid #000;
             border-bottom: 2px solid #000;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             margin: 2rem 0;
-        }
-
-        .team-header {
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #444;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
         }
 
         .team-member {
             font-family: 'Segoe UI', sans-serif;
-            font-size: 1.3rem;
-            color: #000000;
+            font-size: 1.1rem;
+            color: #000;
             font-weight: 600;
             margin: 0.5rem 0;
         }
 
-        .usn {
-            color: #d32f2f; /* Dark Red for contrast */
-            font-weight: 700;
-        }
+        .usn { color: #d32f2f; font-weight: 700; }
 
-        /* --- STANDARD PAGE STYLING --- */
         .page {
             max-width: 850px;
             margin: 0 auto 2rem auto;
@@ -113,7 +90,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Typography for Content */
         h2 {
             font-family: 'Segoe UI', sans-serif;
             border-bottom: 3px solid var(--accent);
@@ -132,13 +108,8 @@
             font-weight: 700;
         }
 
-        p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
-            font-size: 1.1rem;
-        }
+        p { margin-bottom: 1.2rem; text-align: justify; font-size: 1.1rem; }
 
-        /* Images & Code Blocks */
         .figure-container {
             text-align: center;
             margin: 2rem 0;
@@ -148,7 +119,6 @@
             border-radius: 4px;
         }
         
-        /* Local images (Figures) still need to be in your folder */
         img { max-width: 100%; height: auto; border: 1px solid #ddd; }
         .figure-caption { color: #64748b; font-size: 0.95rem; margin-top: 0.8rem; font-style: italic; }
 
@@ -161,109 +131,54 @@
             font-size: 0.95rem;
             margin: 2rem 0;
             white-space: pre-wrap;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        /* Print Settings */
-        @media print {
-            .page { margin: 0; box-shadow: none; page-break-after: always; }
-            body { background: white; }
-            .title-page { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
 <body>
 
-    <div class="page title-page">
+    <div class="title-page">
         <div class="title-overlay">
             <h1>Hand Gesture Recognition Using Leap Motion Controller</h1>
             <p class="subtitle">A Computer Vision Approach Using Deep Convolutional Neural Networks</p>
             
             <div class="team-section">
-                <div class="team-header">Submitted By Team Members</div>
+                <div style="font-weight:bold; margin-bottom:10px;">Submitted By Team Members</div>
                 <div class="team-member">Adavirao V K <span class="usn">(01FE23BCS081)</span></div>
                 <div class="team-member">Shridhar Jarali <span class="usn">(01FE23BCS164)</span></div>
                 <div class="team-member">Shivaraj Chougala <span class="usn">(01FE23BCS162)</span></div>
             </div>
 
-            <div style="font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; color: #444;">
-                <strong>Department of Computer Science & Engineering</strong><br>
-                December 2025
+            <div style="font-family: 'Segoe UI', sans-serif; font-size: 1rem; color: #444;">
+                <strong>Department of Computer Science & Engineering</strong><br>December 2025
             </div>
         </div>
     </div>
 
     <div class="page">
         <h2>Abstract</h2>
-        <p>
-            Hand Gesture Recognition (HGR) stands at the forefront of Human-Computer Interaction (HCI), enabling sterile, touchless control in medical and virtual environments. While traditional RGB-based methods struggle with low-light conditions and lack depth information, this project explores a <strong>Computer Vision-based approach</strong> utilizing the Leap Motion Controller (LMC) to capture stereo infrared imagery.
-        </p>
-        <p>
-            Unlike skeletal tracking methods that fail during self-occlusion, this study implements a <strong>High-Capacity Convolutional Neural Network (CNN)</strong> that processes raw infrared frames directly. By applying rigorous domain randomization and spatial normalization, the proposed system achieves >99% accuracy on the LeapGestRecog dataset, demonstrating superior robustness compared to classical geometric feature extraction methods.
-        </p>
+        <p>Hand Gesture Recognition (HGR) stands at the forefront of Human-Computer Interaction (HCI). This project explores a <strong>Computer Vision-based approach</strong> utilizing the Leap Motion Controller (LMC) to capture stereo infrared imagery. Unlike skeletal tracking methods that fail during self-occlusion, this study implements a <strong>High-Capacity CNN</strong> that processes raw infrared frames directly, achieving >99% accuracy.</p>
 
         <h2>1. Introduction</h2>
-        <p>
-            The evolution of HCI is moving away from physical contact devices towards touchless interfaces. The Leap Motion Controller offers a unique advantage by using stereo infrared cameras to track hand movements with sub-millimeter accuracy. However, translating this raw sensor data into meaningful commands remains a challenge due to the high variability in human hand shapes and environmental conditions.
-        </p>
-    </div>
+        <p>The evolution of HCI is moving away from physical contact devices towards touchless interfaces. The Leap Motion Controller offers a unique advantage by using stereo infrared cameras to track hand movements with sub-millimeter accuracy.</p>
 
-    <div class="page">
         <h2>2. Literature Review</h2>
-        <p>
-            The domain of Hand Gesture Recognition has evolved significantly over the last decade. A survey of the literature reveals three distinct generations of methodologies.
-        </p>
+        <p><strong>Generation I (Geometric):</strong> Used manual math features (brittle).<br>
+        <strong>Generation II (Skeletal LSTM):</strong> Used stick figures (fails when fingers hidden).<br>
+        <strong>Generation III (Our Vision CNN):</strong> Uses raw infrared images to see "shape" and "texture".</p>
 
-        <h3>2.1 Generation I: Geometric Features</h3>
-        <p>
-            Early research relied on "hand-crafted" features, such as the Euclidean distance between fingertips. These methods were computationally cheap but brittle; they failed to generalize across users with different hand sizes (Scale Variance).
-        </p>
-
-        <h3>2.2 Generation II: Skeletal LSTM</h3>
-        <p>
-            Researchers later used Recurrent Neural Networks (RNNs) to track skeletal joints over time. While effective for motion, these models suffer from the <strong>Occlusion Paradox</strong>: if the camera loses sight of a finger (e.g., during a fist), the skeletal data becomes corrupted, causing the model to fail.
-        </p>
-
-        <h3>2.3 Generation III: Vision-Based CNN (Our Approach)</h3>
-        <p>
-            Recent work treats the input as <strong>Stereo Infrared Images</strong>. By using CNNs, the model learns texture and topology directly from pixels. Even if a finger is occluded, the CNN can infer the hand shape from the visible contours, much like the human eye. This project builds upon this generation, specifically addressing lighting invariance.
-        </p>
-    </div>
-
-    <div class="page">
         <h2>3. Methodology</h2>
-        
-        <h3>3.1 Dataset & Gesture Classes</h3>
-        <p>
-            We utilized the <strong>LeapGestRecog</strong> dataset, consisting of 20,000 stereo infrared images. The model was trained to recognize <strong>10 distinct classes</strong>:
-        </p>
-        <ul style="background: #f8fafc; padding: 20px 40px; border: 1px solid #e2e8f0; border-radius: 8px;">
-            <li>01_Palm (Open Hand)</li>
-            <li>02_L (L-Shape)</li>
-            <li>03_Fist (Closed Hand)</li>
-            <li>04_Fist_Moved (Dynamic Fist)</li>
-            <li>05_Thumb (Thumb Up)</li>
-            <li>06_Index (Pointing)</li>
-            <li>07_OK (OK Sign)</li>
-            <li>08_Palm_Moved (Waving)</li>
-            <li>09_C (C-Shape)</li>
-            <li>10_Down (Pointing Down)</li>
-        </ul>
+        <p>We utilized the <strong>LeapGestRecog</strong> dataset (20,000 images, 10 classes). We applied a preprocessing pipeline including Resizing (128x128) and Color Jittering.</p>
 
         <div class="figure-container">
-            <img src="file:///C:/Users/adavi/Downloads/download (3).png" alt="Dataset Samples">
+            <img src="download (3).png" alt="Dataset Samples">
             <div class="figure-caption">Figure 1: Infrared Inputs from the Dataset</div>
         </div>
 
-        <h3>3.2 Computer Vision Pipeline</h3>
-        <p>
-            To ensure robustness, the following preprocessing pipeline was applied before the CNN:
-        </p>
         <div class="tech-block">
-# Preprocessing Strategy (PyTorch)
+# Preprocessing Strategy
 transforms.Compose([
-    transforms.Resize((128, 128)),          # Solves Scale Variance
-    transforms.ColorJitter(brightness=0.2), # Solves Lighting Noise
+    transforms.Resize((128, 128)),
+    transforms.ColorJitter(brightness=0.2),
     transforms.ToTensor()
 ])
         </div>
@@ -271,42 +186,33 @@ transforms.Compose([
 
     <div class="page">
         <h2>4. Experimental Results</h2>
-
-        <h3>4.1 System Architecture</h3>
-        <p>
-            We designed a VGG-style Deep CNN. It extracts hierarchical features, moving from simple edge detection in the early layers to complex shape recognition in the deeper layers.
-        </p>
+        <p>We designed a VGG-style Deep CNN to extract hierarchical features.</p>
+        
         <div class="figure-container">
-            <img src="file:///C:/Users/adavi/Downloads/download (2).png" alt="CNN Architecture">
+            <img src="download (2).png" alt="CNN Architecture">
             <div class="figure-caption">Figure 2: System Architecture</div>
         </div>
 
-        <h3>4.2 Quantitative Performance</h3>
-        <p>
-            The model achieved a <strong>Test Accuracy of 99.9%</strong>. The confusion matrix below confirms that the system can distinguish between visually similar gestures with near-zero error.
-        </p>
+        <h3>Quantitative Performance</h3>
+        <p>The model achieved a <strong>Test Accuracy of 99.9%</strong>. The confusion matrix below confirms near-zero error.</p>
+        
         <div class="figure-container">
-            <img src="file:///C:/Users/adavi/Downloads/download (1).png" alt="Confusion Matrix">
-            <div class="figure-caption">Figure 3: Confusion Matrix & Training Graphs</div>
+            <img src="download (1).png" alt="Confusion Matrix">
+            <div class="figure-caption">Figure 3: Confusion Matrix</div>
         </div>
 
-        <h3>4.3 Real-Time Demonstration</h3>
-        <p>
-            The system operates with a latency of <18ms, allowing for seamless real-time tracking.
-        </p>
+        <h3>Real-Time Demonstration</h3>
+        <p>The system operates with a latency of less than 18ms.</p>
+        
         <div class="figure-container">
-            <img src="file:///C:/Users/adavi/Downloads/download.gif" alt="Real Time Demo">
+            <img src="download.gif" alt="Real Time Demo">
             <div class="figure-caption">Figure 4: Real-Time Inference Output</div>
         </div>
-    </div>
 
-    <div class="page">
         <h2>5. Conclusion</h2>
-        <p>
-            This project successfully demonstrates a robust Computer Vision solution for Hand Gesture Recognition. By leveraging Deep Learning on infrared data, we overcame the limitations of skeletal tracking. The system's ability to generalize across subjects and lighting conditions makes it a viable candidate for deployment in real-world sterile interface applications.
-        </p>
+        <p>This project successfully demonstrates a robust Computer Vision solution for Hand Gesture Recognition. The system's ability to generalize across subjects and lighting conditions makes it viable for real-world deployment.</p>
         
-        <div style="text-align: center; margin-top: 4rem; color: #64748b; font-size: 0.9rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+        <div style="text-align: center; margin-top: 4rem; color: #64748b; font-size: 0.9rem;">
             Report Generated for Academic Submission (2025)
         </div>
     </div>
